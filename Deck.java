@@ -63,6 +63,18 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		//copy shuffledDeck to keep a template
+			ArrayList <Card> remainingCards = new ArrayList<>();
+			for (int i = 0; i < size; i++) {
+				remainingCards.add(cards.get(i));
+			}				
+			//begin overwriting values
+			for (int i = cards.size() - 1; i >= 0; i--) { //start from the top index and move downwards
+				int pulledCardIndex = (int) (Math.random() * (remainingCards.size() - 1)); //find and select a random card from remainingCards
+				cards.set(i, remainingCards.get(pulledCardIndex)); //add the pulled card from remaining cards into the selected cards slot
+				remainingCards.remove(pulledCardIndex); //remove the pulled card from the queue
+			}
+
 	}
 
 	/**
